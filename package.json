@@ -1,6 +1,6 @@
 {
   "name": "@koopjs/output-ogcapi-features",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An opinionated output template for koop-cli",
   "main": "src/index.js",
   "scripts": {
