@@ -1,13 +1,40 @@
-Copyright 2019 Esri
+# @koopjs/output-ogcapi-features
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features)
 
-    http://www.apache.org/licenses/LICENSE-2.0
+Implemented routes:
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+- [x] `/conformance`
+- [ ] `/collections`
+- [ ] `/collections/:collectionId`
+- [x] `/collections/:collectionId/items`
+- [x] `/collections/:collectionId/items/:featureId`
+
+## Installation
+
+```
+npm install @koopjs/output-ogcapi-features
+```
+
+## Usage
+
+This provider can be registered in a Koop app.
+
+```javascript
+const Koop = require("koop");
+const ogcOutput = require("@koopjs/output-ogcapi-features");
+
+Koop.register(ogcOutput);
+```
+
+If the app is developed using the Koop CLI, it can be auto-registered with
+
+```bash
+koop add @koopjs/provider-ogcapi-features
+```
+
+This output translates the dataset from the provider into a single-collection service. So you can access the data with the collection id `0`:
+
+```
+GET base-url/collections/0/items
+```

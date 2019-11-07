@@ -1,7 +1,7 @@
 {
   "name": "@koopjs/output-ogcapi-features",
   "version": "0.1.2",
-  "description": "An opinionated output template for koop-cli",
+  "description": "Experimental KoopJS output plugin for OGC API - Feature",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha 'test/**/*.test.js'",
@@ -22,7 +22,11 @@
     "pretty-quick": "^2.0.1",
     "supertest": "^4.0.2"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koopjs/output-ogcapi-features.git"
+  },
+  "license": "Apache-2.0",
   "keywords": [
     "koop",
     "plugin",

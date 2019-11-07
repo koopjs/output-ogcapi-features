@@ -5,7 +5,7 @@ module.exports = [
     handler: "getConformance"
   },
   {
-    path: "$namespace/$providerParams/collections/:collectionId/items(.json)?",
+    path: "$namespace/$providerParams/collections/:collectionId/items",
     methods: ["get"],
     handler: "getCollectionItems"
   },
