@@ -34,7 +34,7 @@ function formatItem(feature, options) {
 
 function findId(properties, idField = "objectid") {
   const idKey = Object.keys(properties).find(
-    key => key.toLocaleLowerCase() === idField
+    key => key.toLocaleLowerCase() === idField.toLocaleLowerCase()
   );
   return properties[idKey];
 }
