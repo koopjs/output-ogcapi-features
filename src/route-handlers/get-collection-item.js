@@ -20,7 +20,7 @@ module.exports = function getCollectionItem(req, res) {
     try {
       const queryOptions = {
         toEsri: false,
-        where: `${idField} = '${featureId}'`
+        where: generateIdFilter(idField, featureId)
       };
       const queryResult = winnow.query(geojson, queryOptions);
 
@@ -41,3 +41,13 @@ module.exports = function getCollectionItem(req, res) {
     }
   });
 };
+
+function generateIdFilter(idField, featureId) {
+  const filter = `${idField} = `;
+
+  if (Number.isInteger(parseInt(featureId))) {
+    return filter + featureId;
+  } else {
+    return filter + `'${featureId}'`;
+  }
+}
