@@ -1,6 +1,6 @@
 const {
   generateItemLinks,
-  generateCollectionLinks
+  generateCollectionItemsLinks
 } = require("./generate-links");
 
 function formatCollection(featureCollection, options = {}) {
@@ -12,7 +12,7 @@ function formatCollection(featureCollection, options = {}) {
     numberReturned: featureCollection.features.length,
     numberMatched: options.matched,
     timeStamp: new Date().toISOString(),
-    links: generateCollectionLinks(options.baseURL, options)
+    links: generateCollectionItemsLinks(options.baseURL, options)
   };
 
   return result;

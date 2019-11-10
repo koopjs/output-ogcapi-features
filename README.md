@@ -1,12 +1,12 @@
 # @koopjs/output-ogcapi-features
 
-Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features)
+Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features). This output turns the dataset from any provider into a single-collection service.
 
 Implemented routes:
 
 - [x] `/conformance`
-- [ ] `/collections`
-- [ ] `/collections/:collectionId`
+- [x] `/collections`
+- [x] `/collections/:collectionId`
 - [x] `/collections/:collectionId/items`
 - [x] `/collections/:collectionId/items/:featureId`
 

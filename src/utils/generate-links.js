@@ -17,7 +17,7 @@ function generateItemLinks(baseURL, featureId) {
   return links;
 }
 
-function generateCollectionLinks(baseURL, options) {
+function generateCollectionItemsLinks(baseURL, options) {
   const collectionURL = new URL(`${baseURL}/collections/0/items.json`);
 
   const links = [
@@ -62,7 +62,25 @@ function generateCollectionLinks(baseURL, options) {
   return links;
 }
 
+function generateCollectionLinks(baseURL, collectionId) {
+  const collectionURL = new URL(
+    `${baseURL}/collections/${collectionId}/items.json`
+  );
+
+  const links = [
+    {
+      href: collectionURL.href,
+      rel: "self",
+      type: "application/geo+json",
+      title: "this document"
+    }
+  ];
+
+  return links;
+}
+
 module.exports = {
   generateCollectionLinks,
+  generateCollectionItemsLinks,
   generateItemLinks
 };

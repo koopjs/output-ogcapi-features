@@ -1,5 +1,7 @@
 const {
   getConformance,
+  getCollection,
+  getCollections,
   getCollectionItem,
   getCollectionItems
 } = require("./route-handlers");
@@ -15,6 +17,10 @@ OGCAPIFeatures.name = "ogcapi-features";
 OGCAPIFeatures.type = "output";
 
 OGCAPIFeatures.prototype.getConformance = getConformance;
+
+OGCAPIFeatures.prototype.getCollection = getCollection;
+
+OGCAPIFeatures.prototype.getCollections = getCollections;
 
 OGCAPIFeatures.prototype.getCollectionItem = getCollectionItem;
 

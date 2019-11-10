@@ -5,6 +5,16 @@ module.exports = [
     handler: "getConformance"
   },
   {
+    path: "$namespace/$providerParams/collections",
+    methods: ["get"],
+    handler: "getCollections"
+  },
+  {
+    path: "$namespace/$providerParams/collections/:collectionId",
+    methods: ["get"],
+    handler: "getCollection"
+  },
+  {
     path: "$namespace/$providerParams/collections/:collectionId/items",
     methods: ["get"],
     handler: "getCollectionItems"

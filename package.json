@@ -8,6 +8,7 @@
     "start": "koop serve --data test/data.geojson"
   },
   "dependencies": {
+    "@turf/bbox": "^6.0.1",
     "config": "^3.2.4",
     "lodash": "^4.17.15",
     "winnow": "^1.16.11"
