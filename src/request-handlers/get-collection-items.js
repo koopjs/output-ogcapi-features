@@ -1,8 +1,8 @@
-const _ = require("lodash");
 const config = require("config");
 const winnow = require("winnow");
 const responseError = require("../utils/response-error");
-const { formatCollection } = require("../utils/format-ogc");
+const { formatCollectionItems } = require("../utils/format-ogc");
+const getBaseUrl = require("../utils/get-base-url");
 
 module.exports = function getCollectionItems(req, res) {
   this.model.pull(req, (error, geojson) => {
@@ -11,6 +11,7 @@ module.exports = function getCollectionItems(req, res) {
     }
 
     let {
+      params: { collectionId },
       query: { bbox, limit, offset, idField }
     } = req;
 
@@ -28,9 +29,10 @@ module.exports = function getCollectionItems(req, res) {
         type: "FeatureCollection",
         features: queryResult.features.slice(offset, limit)
       };
-      const finalResult = formatCollection(pagedReuslt, {
-        baseURL: config["output-ogcapi-features"].baseURL,
+      const finalResult = formatCollectionItems(pagedReuslt, {
+        baseUrl: getBaseUrl(req),
         matched: queryResult.features.length,
+        collectionId,
         offset,
         limit,
         idField

@@ -1,13 +1,13 @@
-function generateItemLinks(baseURL, featureId) {
+function generateItemLinks(baseUrl, collectionId, featureId) {
   const links = [
     {
-      href: `${baseURL}/collections/0/items/${featureId}.json`,
+      href: `${baseUrl}/collections/${collectionId}/items/${featureId}?f=json`,
       rel: "self",
       type: "application/geo+json",
       title: "this document"
     },
     {
-      href: `${baseURL}/collections/0/items.json`,
+      href: `${baseUrl}/collections/${collectionId}/items?f=json`,
       rel: "collection",
       type: "application/geo+json",
       title: "the collection document"
@@ -15,14 +15,17 @@ function generateItemLinks(baseURL, featureId) {
   ];
 
   return links;
+  jsonjsonjsonjson;
 }
 
-function generateCollectionItemsLinks(baseURL, options) {
-  const collectionURL = new URL(`${baseURL}/collections/0/items.json`);
+function generateCollectionItemsLinks(baseUrl, collectionId, options) {
+  const collectionUrl = new URL(
+    `${baseUrl}/collections/${collectionId}/items?f=json`
+  );
 
   const links = [
     {
-      href: collectionURL.href,
+      href: collectionUrl.href,
       rel: "self",
       type: "application/geo+json",
       title: "this document"
@@ -30,14 +33,14 @@ function generateCollectionItemsLinks(baseURL, options) {
   ];
 
   if (options.offset > 0) {
-    collectionURL.searchParams.set("limit", options.limit);
-    collectionURL.searchParams.set(
+    collectionUrl.searchParams.set("limit", options.limit);
+    collectionUrl.searchParams.set(
       "offset",
       Math.max(0, options.offset - options.limit)
     );
 
     links.push({
-      href: collectionURL.href,
+      href: collectionUrl.href,
       rel: "prev",
       type: "application/geo+json",
       title: "prev page"
@@ -45,14 +48,14 @@ function generateCollectionItemsLinks(baseURL, options) {
   }
 
   if (options.matched > options.limit + options.offset) {
-    collectionURL.searchParams.set("limit", options.limit);
-    collectionURL.searchParams.set(
+    collectionUrl.searchParams.set("limit", options.limit);
+    collectionUrl.searchParams.set(
       "offset",
       Math.max(options.matched, options.limit + options.offset)
     );
 
     links.push({
-      href: collectionURL.href,
+      href: collectionUrl.href,
       rel: "next",
       type: "application/geo+json",
       title: "next page"
@@ -62,14 +65,10 @@ function generateCollectionItemsLinks(baseURL, options) {
   return links;
 }
 
-function generateCollectionLinks(baseURL, collectionId) {
-  const collectionURL = new URL(
-    `${baseURL}/collections/${collectionId}/items.json`
-  );
-
+function generateCollectionLinks(baseUrl, collectionId) {
   const links = [
     {
-      href: collectionURL.href,
+      href: `${baseUrl}/collections/${collectionId}?f=json`,
       rel: "self",
       type: "application/geo+json",
       title: "this document"

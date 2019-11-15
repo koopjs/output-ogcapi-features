@@ -1,6 +1,6 @@
-const config = require("config");
 const responseError = require("../utils/response-error");
-const generateCollection = require("../utils/generate-collection");
+const { formatCollection } = require("../utils/format-ogc");
+const getBaseUrl = require("../utils/get-base-url");
 
 module.exports = function getCollectionItem(req, res) {
   this.model.pull(req, (error, geojson) => {
@@ -8,21 +8,18 @@ module.exports = function getCollectionItem(req, res) {
       return responseError(req, res, error);
     }
 
-    const {
-      params: { collectionId }
-    } = req;
-
     try {
-      const collection = generateCollection(collectionId, geojson);
-
-      const baseURL = config["output-ogcapi-features"].baseURL;
-      const collectionURL = new URL(`${baseURL}/collections?f=json`);
+      const baseUrl = getBaseUrl(req);
+      const collection = formatCollection(geojson, {
+        collectionId: "0",
+        baseUrl
+      });
 
       res.status(200).json({
         collections: [collection],
         links: [
           {
-            href: collectionURL.href,
+            href: `${baseUrl}/collections?f=json`,
             rel: "self",
             type: "application/geo+json",
             title: "this document"

@@ -1,6 +1,10 @@
 # @koopjs/output-ogcapi-features
 
-Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features). This output turns the dataset from any provider into a single-collection service.
+Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features) (AKA WFS 3.0). This output turns the dataset from any provider into a single-collection service.
+
+Implemented specs:
+
+- http://www.opengis.net/spec/wfs-1/3.0/req/core
 
 Implemented routes:
 
@@ -31,10 +35,4 @@ If the app is developed using the Koop CLI, it can be auto-registered with
 
 ```bash
 koop add @koopjs/provider-ogcapi-features
-```
-
-This output translates the dataset from the provider into a single-collection service. So you can access the data with the collection id `0`:
-
-```
-GET base-url/collections/0/items
 ```

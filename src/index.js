@@ -4,7 +4,7 @@ const {
   getCollections,
   getCollectionItem,
   getCollectionItems
-} = require("./route-handlers");
+} = require("./request-handlers");
 const routes = require("./routes");
 const packageInfo = require("../package");
 

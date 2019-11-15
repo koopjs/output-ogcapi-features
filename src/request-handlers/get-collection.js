@@ -1,5 +1,6 @@
 const responseError = require("../utils/response-error");
-const generateCollection = require("../utils/generate-collection");
+const { formatCollection } = require("../utils/format-ogc");
+const getBaseUrl = require("../utils/get-base-url");
 
 module.exports = function getCollectionItem(req, res) {
   this.model.pull(req, (error, geojson) => {
@@ -12,7 +13,10 @@ module.exports = function getCollectionItem(req, res) {
     } = req;
 
     try {
-      const result = generateCollection(collectionId, geojson);
+      const result = formatCollection(geojson, {
+        baseUrl: getBaseUrl(req),
+        collectionId
+      });
       res.status(200).json(result);
     } catch (error) {
       responseError(req, res, error);
