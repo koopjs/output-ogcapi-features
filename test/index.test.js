@@ -9,6 +9,9 @@ describe("Koop output", function() {
 
     expect(output.type).to.equal("output");
     expect(output.routes).to.be.an("array");
-    expect(output.prototype.serve).to.be.a("function");
+
+    output.routes.forEach(route => {
+      expect(output.prototype[route.handler]).to.be.a("function");
+    });
   });
 });
