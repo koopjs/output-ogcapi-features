@@ -1,5 +1,7 @@
 # @koopjs/output-ogcapi-features
 
+[![npm](https://img.shields.io/npm/v/@koopjs/output-ogcapi-features)](https://www.npmjs.com/package/@koopjs/output-ogcapi-features) [![Build Status](https://www.travis-ci.org/koopjs/output-ogcapi-features.svg?branch=master)](https://www.travis-ci.org/koopjs/output-ogcapi-features)
+
 Experimental output plugin for [OGC API - Feature](https://github.com/opengeospatial/ogcapi-features) (AKA WFS 3.0). This output turns the dataset from any provider into a single-collection service.
 
 Implemented specs:
