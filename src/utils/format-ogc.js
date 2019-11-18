@@ -50,6 +50,7 @@ function formatCollection(geojson, options) {
   const links = generateCollectionLinks(options.baseUrl, options.collectionId);
   const result = {
     id: options.collectionId,
+    // some clients rely on the "name" field
     name: options.collectionId,
     description: metadata.description,
     title: metadata.name || options.collectionId,
