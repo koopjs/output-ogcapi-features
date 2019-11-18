@@ -1,6 +1,6 @@
 {
   "name": "@koopjs/output-ogcapi-features",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Experimental KoopJS output plugin for OGC API - Feature",
   "main": "src/index.js",
   "scripts": {
