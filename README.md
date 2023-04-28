@@ -36,5 +36,5 @@ Koop.register(ogcOutput);
 If the app is developed using the Koop CLI, it can be auto-registered with
 
 ```bash
-koop add @koopjs/provider-ogcapi-features
+koop add output @koopjs/provider-ogcapi-features
 ```
